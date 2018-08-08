@@ -18,6 +18,7 @@ namespace LinkedList
         public Node Head;
         public Node Current;
         public int Count = 0;
+        
 
         public void AddAtStart(object value)
         {
@@ -54,7 +55,62 @@ namespace LinkedList
             Console.Write("NULL");
             Console.WriteLine();
         }
+        /////////    LAB 18 METHODS   /////////////
+        public void RemoveAt(int index)
+        {
+            if (Count <= 0)
+            {
+                //throw new Exception("There are no elements to remove");
+            }
+            Node current = Head;
+            for(int i = 0; i < index - 1; i++)
+            {
+                current = current.Next;
+                
+            }
+            current.Next = current.Next.Next;
+            Count--;
+        }
 
+        public void PrintReverse()
+        {
+            Node previous = null;
+            Node current = Head;
+
+            while (current != null)
+            {
+                Node temp = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = temp;
+            }
+            Head = previous;
+        }
+
+        public bool InsertAt(int index, Object o)
+        {
+            Node current = Head;
+            var newNode = new Node()
+            {
+                Value = o
+            };
+            if (Count <= 0)
+            {
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < index - 1; i++)
+                {
+                    current = current.Next;
+                    newNode.Next = current.Next;
+                }
+                current.Next = newNode;
+            }
+            Count++;
+            return true;
+        }
+        //////////////// END LAB 18 METHODS /////////////////
 
     }
 

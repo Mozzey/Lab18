@@ -28,9 +28,9 @@ namespace LinkedList
             Console.WriteLine("Press any key to continue to Generic Linked List example");
             Console.ReadKey();
             Console.Clear();
-            RunGenericLinkedListExample();
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
+            //RunGenericLinkedListExample();
+            //Console.WriteLine("Press any key to exit");
+            //Console.ReadKey();
         }
 
         private static void RunGenericLinkedListExample()
@@ -81,8 +81,21 @@ namespace LinkedList
             {
                 objectLinkedList.AddAtStart(student);
                 Console.Write($"After adding {student}: ");
+                
                 objectLinkedList.PrintAllNodes();
             }
+            Console.WriteLine("====== Inserting at index 3 =======");
+            // insert new object at index 3
+            objectLinkedList.InsertAt(3, "New Object");
+            objectLinkedList.PrintAllNodes();
+            Console.WriteLine("====== Removing at index 3 =======");
+            // remove node at index 3
+            objectLinkedList.RemoveAt(3);
+            objectLinkedList.PrintAllNodes();
+            Console.WriteLine("====== Reverse ======");
+            // reverse the nodes
+            objectLinkedList.PrintReverse();
+            objectLinkedList.PrintAllNodes();
 
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
@@ -93,6 +106,7 @@ namespace LinkedList
                 try
                 {
                     objectLinkedList.RemoveFromStart();
+                    
                     objectLinkedList.PrintAllNodes();
                 }
                 catch (Exception)
@@ -101,7 +115,7 @@ namespace LinkedList
                     break;
                 }
             }
-
+            
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             Console.WriteLine();
